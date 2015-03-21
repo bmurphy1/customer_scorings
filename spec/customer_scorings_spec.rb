@@ -16,5 +16,14 @@ describe CustomerScorings do
         expect(response).to eq body
       end
     end
+
+    context "when request unsuccessful (status 500)" do
+      it "raises an error" do
+        stub_request(:get, stub_url).
+          to_return(status: 500, body: '')
+
+        expect { CustomerScorings.get(attributes) }.to raise_error
+      end
+    end
   end
 end

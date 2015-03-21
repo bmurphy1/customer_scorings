@@ -9,7 +9,7 @@ class CustomerScorings
   def self.get(attributes)
     uri = formatted_uri(attributes)
     response = Net::HTTP.get_response(uri)
-    response.body
+    response.code == '200' ? response.body : raise_exception(response.code)
   end
 
   private
@@ -21,3 +21,8 @@ class CustomerScorings
     uri.query = URI.encode_www_form attributes
     uri
   end
+
+  def self.raise_exception(status_code)
+    raise "Error: #{status_code} status code returned from server"
+  end
+end
