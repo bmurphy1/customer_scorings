@@ -1,4 +1,4 @@
-require_relative '../customer_scorings'
+require_relative '../lib/customer_scorings'
 
 describe CustomerScorings do
 
