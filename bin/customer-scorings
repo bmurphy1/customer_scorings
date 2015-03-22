@@ -1,0 +1,23 @@
+#!/user/bin/ruby
+
+require 'customer_scorings'
+
+# Parse ARGV string format to Ruby Hash
+def parsed_argv
+  Hash[ARGV.map { |arg| arg.split(":") }]
+end
+
+# Validates existence of ARGV arguments and that
+# each ARGV string is in the format "<key>:<value>"
+def valid_argv?
+  ARGV[0] && ARGV.all? { |arg| /.+:.+/ =~ arg }
+end
+
+# Command-line logic
+if valid_argv?
+  CustomerScorings.get(parsed_argv)
+elsif ARGV[0].nil?
+  puts "Enter command line arguments"
+else
+  puts "Command line arguments not formatted correctly"
+end
