@@ -1,6 +1,6 @@
 ## Customer Scorings
 #### About
-Library to interface with a single given HTTP enpoint, returning customer scorings based on given attributes.
+Library to interface with a single given HTTP endpoint, returning customer scorings based on given attributes.
 
 #### Requirements
 
@@ -8,14 +8,14 @@ Library to interface with a single given HTTP enpoint, returning customer scorin
 - From within the project directory, bundle install:
 
 ```
-bundle install
+$ bundle install
 ```
 
 #### Tests
 - Run tests
 
 ```
-rspec
+$ rspec
 ```
 
 #### How to use as a library
@@ -29,6 +29,7 @@ CustomerScorings.get({zipcode: 11111, income: 50000 age:, 25})
 - From the command line:
 
 ```
+$ gem install customer_scorings
 $ ruby ./bin/customer-scorings <key1>:<value1> <key2>:<value2> etc
 ```
 Example:
