@@ -7,8 +7,7 @@ class CustomerScorings
   # Returns customer scorings from external API based on query
   # @param [Hash] attributes - Hash of attributes sent to query against
   def self.get(attributes)
-    uri = formatted_uri(attributes)
-    response = Net::HTTP.get_response(uri)
+    response = Net::HTTP.get_response(formatted_uri(attributes))
     response.code == '200' ? response.body : raise_exception(response.code)
   end
 

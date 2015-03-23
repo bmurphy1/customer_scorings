@@ -16,7 +16,7 @@ end
 # Command-line logic
 if valid_argv?
   CustomerScorings.get(parsed_argv)
-elsif ARGV[0].nil?
+elsif ARGV.empty?
   puts "Enter command line arguments"
 else
   puts "Command line arguments not formatted correctly"
