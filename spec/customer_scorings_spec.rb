@@ -13,7 +13,7 @@ describe CustomerScorings do
           to_return(status: 200, body: body)
         response = CustomerScorings.get(attributes)
 
-        expect(response).to eq body
+        expect(response).to eq(body)
       end
     end
 
@@ -22,7 +22,7 @@ describe CustomerScorings do
         stub_request(:get, stub_url).
           to_return(status: 500, body: '')
 
-        expect { CustomerScorings.get(attributes) }.to raise_error
+        expect { CustomerScorings.get(attributes) }.to(raise_error)
       end
     end
   end

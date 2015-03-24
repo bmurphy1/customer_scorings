@@ -17,11 +17,17 @@ class CustomerScorings
   # @param [Hash] attributes - key/value of attributes
   def self.formatted_uri(attributes)
     uri = URI.parse(@url)
-    uri.query = URI.encode_www_form attributes
+    uri.query = URI.encode_www_form(attributes)
     uri
   end
 
   def self.raise_exception(status_code)
     raise "Error: #{status_code} status code returned from server"
+  end
+end
+
+class CustomerScoringsException < StandardError
+  def initialize(status_code)
+
   end
 end
